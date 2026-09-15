@@ -73,18 +73,6 @@
     </radialGradient>
 
     <!-- ====================================================== -->
-    <!-- FILTERS -->
-    <!-- ====================================================== -->
-
-    <filter id="blur35" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="35"/>
-    </filter>
-
-    <filter id="blur55" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="55"/>
-    </filter>
-
-    <!-- ====================================================== -->
     <!-- SUBSURFACE CLIP -->
     <!-- ====================================================== -->
 
@@ -218,16 +206,14 @@
              cy="360"
              rx="390"
              ry="180"
-             fill="url(#hot1)"
-             filter="url(#blur35)"/>
+             fill="url(#hot1)"/>
 
     <ellipse cx="820"
              cy="415"
              rx="260"
              ry="130"
              fill="#ff812b"
-             opacity="0.42"
-             filter="url(#blur35)"/>
+             opacity="0.42"/>
 
 
     <!-- ------------------------------------------------------ -->
@@ -239,8 +225,7 @@
              rx="260"
              ry="115"
              fill="url(#warm)"
-             opacity="0.75"
-             filter="url(#blur35)"/>
+             opacity="0.75"/>
 
 
     <!-- Narrow resistive/cool domain -->
@@ -249,8 +234,7 @@
              rx="230"
              ry="165"
              fill="#0757c8"
-             opacity="0.50"
-             filter="url(#blur35)"/>
+             opacity="0.50"/>
 
 
     <!-- ------------------------------------------------------ -->
@@ -262,16 +246,14 @@
              rx="250"
              ry="90"
              fill="url(#hot2)"
-             opacity="0.95"
-             filter="url(#blur35)"/>
+             opacity="0.95"/>
 
     <ellipse cx="2210"
              cy="415"
              rx="240"
              ry="105"
              fill="url(#hot2)"
-             opacity="0.90"
-             filter="url(#blur35)"/>
+             opacity="0.90"/>
 
 
     <!-- ------------------------------------------------------ -->
@@ -282,16 +264,14 @@
              cy="575"
              rx="440"
              ry="180"
-             fill="url(#deepPurple)"
-             filter="url(#blur55)"/>
+             fill="url(#deepPurple)"/>
 
     <ellipse cx="250"
              cy="590"
              rx="310"
              ry="140"
              fill="#6245c4"
-             opacity="0.28"
-             filter="url(#blur55)"/>
+             opacity="0.28"/>
 
 
     <!-- Depth shading -->
