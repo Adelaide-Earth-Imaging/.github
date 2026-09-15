@@ -1,0 +1,359 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 2400 600"
+  width="2400"
+  height="600"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Adelaide Earth Imaging</title>
+  <desc id="desc">
+    Adelaide Earth Imaging banner with a stylised geophysical conductivity
+    section beneath a topographic surface.
+  </desc>
+
+  <defs>
+    <!-- Background -->
+    <linearGradient id="background" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fbfcfd"/>
+    </linearGradient>
+
+    <!-- Main subsurface field -->
+    <linearGradient id="subsurface" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#76c7e8"/>
+      <stop offset="18%"  stop-color="#54b9df"/>
+      <stop offset="29%"  stop-color="#ffd27c"/>
+      <stop offset="36%"  stop-color="#ef6b55"/>
+      <stop offset="43%"  stop-color="#f4c477"/>
+      <stop offset="55%"  stop-color="#55b9df"/>
+      <stop offset="70%"  stop-color="#377fc5"/>
+      <stop offset="84%"  stop-color="#5360b5"/>
+      <stop offset="94%"  stop-color="#7650a7"/>
+      <stop offset="100%" stop-color="#67b7dc"/>
+    </linearGradient>
+
+    <!-- Fade section to white at depth -->
+    <linearGradient id="depthFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- Conductive anomaly -->
+    <radialGradient id="warmAnomaly">
+      <stop offset="0%" stop-color="#d92d57" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#ef6b55" stop-opacity="0.85"/>
+      <stop offset="72%" stop-color="#ffc76a" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#ffc76a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Deep anomaly -->
+    <radialGradient id="deepAnomaly">
+      <stop offset="0%" stop-color="#71459b" stop-opacity="0.72"/>
+      <stop offset="55%" stop-color="#5360b5" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#5360b5" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Clip everything below surface -->
+    <clipPath id="belowSurface">
+      <path d="
+        M 0 405
+        C 150 402, 250 405, 360 397
+        C 430 392, 470 371, 530 374
+        C 610 377, 655 402, 760 402
+        C 870 402, 980 400, 1050 383
+        C 1120 365, 1170 353, 1240 370
+        C 1310 388, 1390 402, 1500 402
+        C 1600 402, 1690 398, 1770 390
+        C 1840 383, 1890 388, 1970 397
+        C 2070 407, 2220 404, 2400 405
+        L 2400 600
+        L 0 600 Z
+      "/>
+    </clipPath>
+
+    <!-- Slight blur for broad geophysical structures -->
+    <filter id="softBlur">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+
+    <filter id="verySoftBlur">
+      <feGaussianBlur stdDeviation="48"/>
+    </filter>
+  </defs>
+
+  <!-- ========================================================= -->
+  <!-- Background -->
+  <!-- ========================================================= -->
+
+  <rect width="2400" height="600" fill="url(#background)"/>
+
+  <!-- ========================================================= -->
+  <!-- Title -->
+  <!-- ========================================================= -->
+
+  <g
+    fill="#102b46"
+    font-family="Inter, Helvetica Neue, Arial, sans-serif"
+  >
+    <text
+      x="175"
+      y="265"
+      font-size="78"
+      font-weight="300"
+      letter-spacing="16"
+    >
+      ADELAIDE EARTH IMAGING
+    </text>
+  </g>
+
+  <!-- Divider -->
+  <line
+    x1="1740"
+    y1="145"
+    x2="1740"
+    y2="330"
+    stroke="#294a67"
+    stroke-width="2"
+    opacity="0.75"
+  />
+
+  <!-- Research themes -->
+  <g
+    fill="#294a67"
+    font-family="Inter, Helvetica Neue, Arial, sans-serif"
+    font-size="23"
+    font-weight="400"
+    letter-spacing="5"
+  >
+    <text x="1805" y="165">MAGNETOTELLURICS</text>
+    <text x="1805" y="210">PASSIVE SEISMIC</text>
+    <text x="1805" y="255">POTENTIAL FIELDS</text>
+    <text x="1805" y="300">GEOPHYSICAL INVERSION</text>
+    <text x="1805" y="345">COMPUTATIONAL GEOPHYSICS</text>
+  </g>
+
+  <!-- ========================================================= -->
+  <!-- Subsurface base -->
+  <!-- ========================================================= -->
+
+  <g clip-path="url(#belowSurface)">
+
+    <rect
+      x="0"
+      y="350"
+      width="2400"
+      height="250"
+      fill="url(#subsurface)"
+      opacity="0.90"
+    />
+
+    <!-- Broad warm conductive feature -->
+    <ellipse
+      cx="820"
+      cy="435"
+      rx="310"
+      ry="120"
+      fill="url(#warmAnomaly)"
+      filter="url(#softBlur)"
+    />
+
+    <!-- Smaller upper-crustal conductor -->
+    <ellipse
+      cx="690"
+      cy="410"
+      rx="150"
+      ry="65"
+      fill="#e84057"
+      opacity="0.48"
+      filter="url(#softBlur)"
+    />
+
+    <!-- Cooler/resistive central domain -->
+    <ellipse
+      cx="1380"
+      cy="430"
+      rx="420"
+      ry="125"
+      fill="#287dc1"
+      opacity="0.32"
+      filter="url(#verySoftBlur)"
+    />
+
+    <!-- Deep purple structure -->
+    <ellipse
+      cx="1870"
+      cy="510"
+      rx="320"
+      ry="125"
+      fill="url(#deepAnomaly)"
+      filter="url(#softBlur)"
+    />
+
+    <!-- Secondary deep structure -->
+    <ellipse
+      cx="1590"
+      cy="485"
+      rx="250"
+      ry="100"
+      fill="#4554a7"
+      opacity="0.23"
+      filter="url(#softBlur)"
+    />
+
+    <!-- Depth fade -->
+    <rect
+      x="0"
+      y="390"
+      width="2400"
+      height="210"
+      fill="url(#depthFade)"
+    />
+
+    <!-- ======================================================= -->
+    <!-- Geophysical contour / structure lines -->
+    <!-- ======================================================= -->
+
+    <g
+      fill="none"
+      stroke="#ffffff"
+      stroke-width="1.4"
+      opacity="0.28"
+    >
+      <path d="
+        M 0 440
+        C 220 425, 360 438, 520 447
+        C 700 458, 780 486, 930 476
+        C 1100 464, 1200 430, 1390 442
+        C 1580 454, 1710 492, 1900 480
+        C 2100 468, 2220 440, 2400 449
+      "/>
+
+      <path d="
+        M 0 466
+        C 180 451, 350 462, 500 477
+        C 680 494, 790 515, 940 500
+        C 1100 484, 1210 456, 1400 467
+        C 1570 477, 1720 520, 1900 507
+        C 2070 496, 2220 466, 2400 475
+      "/>
+
+      <path d="
+        M 0 493
+        C 200 476, 360 493, 520 508
+        C 700 525, 810 540, 970 526
+        C 1150 509, 1240 486, 1420 495
+        C 1600 506, 1740 543, 1920 532
+        C 2110 519, 2250 496, 2400 505
+      "/>
+
+      <path d="
+        M 80 520
+        C 250 507, 400 520, 560 535
+        C 720 550, 830 558, 1010 545
+        C 1190 532, 1300 515, 1470 522
+        C 1660 530, 1790 558, 1980 551
+        C 2140 544, 2260 527, 2380 530
+      "/>
+    </g>
+
+    <!-- Dashed interpreted structures -->
+    <g
+      fill="none"
+      stroke="#ffffff"
+      stroke-width="1.5"
+      stroke-dasharray="8 10"
+      opacity="0.34"
+    >
+      <path d="
+        M 100 430
+        C 340 430, 450 446, 590 460
+        C 760 476, 890 475, 1040 454
+      "/>
+
+      <path d="
+        M 1100 446
+        C 1270 427, 1410 432, 1540 459
+        C 1700 492, 1850 491, 2050 459
+      "/>
+
+      <path d="
+        M 1770 520
+        C 1880 500, 2010 503, 2170 527
+      "/>
+    </g>
+
+  </g>
+
+  <!-- ========================================================= -->
+  <!-- Surface / topography -->
+  <!-- ========================================================= -->
+
+  <!-- very light terrain fill -->
+  <path
+    d="
+      M 0 405
+      C 150 402, 250 405, 360 397
+      C 430 392, 470 371, 530 374
+      C 610 377, 655 402, 760 402
+      C 870 402, 980 400, 1050 383
+      C 1120 365, 1170 353, 1240 370
+      C 1310 388, 1390 402, 1500 402
+      C 1600 402, 1690 398, 1770 390
+      C 1840 383, 1890 388, 1970 397
+      C 2070 407, 2220 404, 2400 405
+      L 2400 415
+      L 0 415 Z
+    "
+    fill="#dce2e6"
+    opacity="0.55"
+  />
+
+  <!-- Main surface line -->
+  <path
+    d="
+      M 0 405
+      C 150 402, 250 405, 360 397
+      C 430 392, 470 371, 530 374
+      C 610 377, 655 402, 760 402
+      C 870 402, 980 400, 1050 383
+      C 1120 365, 1170 353, 1240 370
+      C 1310 388, 1390 402, 1500 402
+      C 1600 402, 1690 398, 1770 390
+      C 1840 383, 1890 388, 1970 397
+      C 2070 407, 2220 404, 2400 405
+    "
+    fill="none"
+    stroke="#53636f"
+    stroke-width="2"
+    opacity="0.78"
+  />
+
+  <!-- Secondary terrain sketch lines -->
+  <g
+    fill="none"
+    stroke="#87939c"
+    stroke-width="1"
+    opacity="0.25"
+  >
+    <path d="
+      M 290 397
+      C 400 393, 445 379, 505 381
+      C 570 383, 620 398, 700 401
+    "/>
+
+    <path d="
+      M 970 398
+      C 1080 390, 1110 370, 1170 366
+      C 1240 363, 1300 390, 1390 399
+    "/>
+
+    <path d="
+      M 1680 398
+      C 1780 392, 1810 387, 1870 390
+      C 1930 392, 1970 399, 2050 402
+    "/>
+  </g>
+
+</svg>
