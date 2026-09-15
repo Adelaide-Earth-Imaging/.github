@@ -8,11 +8,8 @@ Our research is centred on magnetotellurics and electromagnetic imaging, complem
 
 ## Data & resources
 
-**[AusMT - Australian Magnetotelluric Data Portal](https://ausmt.auscope.org.au/)**  
-National discovery, preservation and access for Australian magnetotelluric data.
+**[AusMT - Australian Magnetotelluric Data Portal](https://ausmt.auscope.org.au/)** - National discovery, preservation and access for Australian magnetotelluric data.
 
-**[NCI - Magnetotelluric Data](https://my.nci.org.au/mancini/project/my80)**  
-MT datasets and time-series data hosted at Australia's National Computational Infrastructure.
+**[NCI - Magnetotelluric Data](https://my.nci.org.au/mancini/project/my80)** - MT datasets and time-series data hosted at Australia's National Computational Infrastructure.
 
-**[AuScope Earth Imaging & Sounding](https://www.auscope.org.au/earth-imaging)**  
-National geophysical instrumentation and research infrastructure supporting Earth imaging across Australia.
+**[AuScope Earth Imaging & Sounding](https://www.auscope.org.au/earth-imaging)** - National geophysical instrumentation and research infrastructure supporting Earth imaging across Australia.
