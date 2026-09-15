@@ -1,359 +1,561 @@
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 2400 600"
-  width="2400"
-  height="600"
-  role="img"
-  aria-labelledby="title desc"
->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 2400 600"
+     width="2400"
+     height="600"
+     role="img"
+     aria-labelledby="title desc">
+
   <title id="title">Adelaide Earth Imaging</title>
   <desc id="desc">
-    Adelaide Earth Imaging banner with a stylised geophysical conductivity
-    section beneath a topographic surface.
+    Adelaide Earth Imaging.
   </desc>
 
   <defs>
-    <!-- Background -->
+
+    <!-- ====================================================== -->
+    <!-- BACKGROUND -->
+    <!-- ====================================================== -->
+
     <linearGradient id="background" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#ffffff"/>
       <stop offset="100%" stop-color="#fbfcfd"/>
     </linearGradient>
 
-    <!-- Main subsurface field -->
-    <linearGradient id="subsurface" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#76c7e8"/>
-      <stop offset="18%"  stop-color="#54b9df"/>
-      <stop offset="29%"  stop-color="#ffd27c"/>
-      <stop offset="36%"  stop-color="#ef6b55"/>
-      <stop offset="43%"  stop-color="#f4c477"/>
-      <stop offset="55%"  stop-color="#55b9df"/>
-      <stop offset="70%"  stop-color="#377fc5"/>
-      <stop offset="84%"  stop-color="#5360b5"/>
-      <stop offset="94%"  stop-color="#7650a7"/>
-      <stop offset="100%" stop-color="#67b7dc"/>
+    <!-- ====================================================== -->
+    <!-- SUBSURFACE BASE -->
+    <!-- ====================================================== -->
+
+    <linearGradient id="earthBase" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#20bce8"/>
+      <stop offset="18%"  stop-color="#22b9e5"/>
+      <stop offset="32%"  stop-color="#38c5df"/>
+      <stop offset="50%"  stop-color="#168dde"/>
+      <stop offset="67%"  stop-color="#1266d0"/>
+      <stop offset="83%"  stop-color="#284bc4"/>
+      <stop offset="100%" stop-color="#6631c3"/>
     </linearGradient>
 
-    <!-- Fade section to white at depth -->
-    <linearGradient id="depthFade" x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id="depthShade" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
-      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#213eb5" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#5421a5" stop-opacity="0.35"/>
     </linearGradient>
 
-    <!-- Conductive anomaly -->
-    <radialGradient id="warmAnomaly">
-      <stop offset="0%" stop-color="#d92d57" stop-opacity="0.95"/>
-      <stop offset="40%" stop-color="#ef6b55" stop-opacity="0.85"/>
-      <stop offset="72%" stop-color="#ffc76a" stop-opacity="0.45"/>
-      <stop offset="100%" stop-color="#ffc76a" stop-opacity="0"/>
+    <!-- ====================================================== -->
+    <!-- ANOMALIES -->
+    <!-- ====================================================== -->
+
+    <radialGradient id="hot1">
+      <stop offset="0%"   stop-color="#ef1747"/>
+      <stop offset="25%"  stop-color="#ff3c32"/>
+      <stop offset="50%"  stop-color="#ff8b2c"/>
+      <stop offset="72%"  stop-color="#ffd34e"/>
+      <stop offset="100%" stop-color="#8bd6bd" stop-opacity="0"/>
     </radialGradient>
 
-    <!-- Deep anomaly -->
-    <radialGradient id="deepAnomaly">
-      <stop offset="0%" stop-color="#71459b" stop-opacity="0.72"/>
-      <stop offset="55%" stop-color="#5360b5" stop-opacity="0.42"/>
-      <stop offset="100%" stop-color="#5360b5" stop-opacity="0"/>
+    <radialGradient id="hot2">
+      <stop offset="0%"   stop-color="#ff632f"/>
+      <stop offset="35%"  stop-color="#ffa52e"/>
+      <stop offset="65%"  stop-color="#e6d74e"/>
+      <stop offset="100%" stop-color="#69d0c5" stop-opacity="0"/>
     </radialGradient>
 
-    <!-- Clip everything below surface -->
-    <clipPath id="belowSurface">
+    <radialGradient id="warm">
+      <stop offset="0%" stop-color="#d4dc59"/>
+      <stop offset="50%" stop-color="#8bd5a8"/>
+      <stop offset="100%" stop-color="#42c7d5" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="deepPurple">
+      <stop offset="0%" stop-color="#7b19ba" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#5331bf" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#274cc4" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- ====================================================== -->
+    <!-- FILTERS -->
+    <!-- ====================================================== -->
+
+    <filter id="blur35" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="35"/>
+    </filter>
+
+    <filter id="blur55" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="55"/>
+    </filter>
+
+    <!-- ====================================================== -->
+    <!-- SUBSURFACE CLIP -->
+    <!-- ====================================================== -->
+
+    <clipPath id="belowGround">
       <path d="
-        M 0 405
-        C 150 402, 250 405, 360 397
-        C 430 392, 470 371, 530 374
-        C 610 377, 655 402, 760 402
-        C 870 402, 980 400, 1050 383
-        C 1120 365, 1170 353, 1240 370
-        C 1310 388, 1390 402, 1500 402
-        C 1600 402, 1690 398, 1770 390
-        C 1840 383, 1890 388, 1970 397
-        C 2070 407, 2220 404, 2400 405
-        L 2400 600
-        L 0 600 Z
+        M0 305
+
+        C90 305 155 301 220 300
+        C290 299 350 289 405 271
+        C440 259 467 244 493 249
+        C525 255 549 275 585 286
+        C632 300 690 304 765 304
+
+        C835 304 895 299 947 280
+        C988 265 1024 247 1061 252
+        C1098 257 1128 277 1167 288
+        C1213 301 1273 305 1343 305
+
+        C1430 305 1510 304 1582 296
+        C1632 291 1680 277 1721 280
+        C1757 283 1783 296 1825 301
+
+        C1900 306 1990 305 2070 305
+        C2170 305 2280 306 2400 305
+
+        L2400 600
+        L0 600 Z
       "/>
     </clipPath>
 
-    <!-- Slight blur for broad geophysical structures -->
-    <filter id="softBlur">
-      <feGaussianBlur stdDeviation="24"/>
-    </filter>
+    <!-- ====================================================== -->
+    <!-- TOPOGRAPHY CLIP -->
+    <!-- ====================================================== -->
 
-    <filter id="verySoftBlur">
-      <feGaussianBlur stdDeviation="48"/>
-    </filter>
+    <clipPath id="terrainClip">
+      <path d="
+        M0 305
+
+        C90 305 155 301 220 300
+        C290 299 350 289 405 271
+        C440 259 467 244 493 249
+        C525 255 549 275 585 286
+        C632 300 690 304 765 304
+
+        C835 304 895 299 947 280
+        C988 265 1024 247 1061 252
+        C1098 257 1128 277 1167 288
+        C1213 301 1273 305 1343 305
+
+        C1430 305 1510 304 1582 296
+        C1632 291 1680 277 1721 280
+        C1757 283 1783 296 1825 301
+
+        C1900 306 1990 305 2070 305
+        C2170 305 2280 306 2400 305
+
+        L2400 318
+        L0 318 Z
+      "/>
+    </clipPath>
+
   </defs>
 
-  <!-- ========================================================= -->
-  <!-- Background -->
-  <!-- ========================================================= -->
+
+  <!-- ======================================================== -->
+  <!-- BACKGROUND -->
+  <!-- ======================================================== -->
 
   <rect width="2400" height="600" fill="url(#background)"/>
 
-  <!-- ========================================================= -->
-  <!-- Title -->
-  <!-- ========================================================= -->
 
-  <g
-    fill="#102b46"
-    font-family="Inter, Helvetica Neue, Arial, sans-serif"
-  >
-    <text
-      x="175"
-      y="265"
-      font-size="78"
-      font-weight="300"
-      letter-spacing="16"
-    >
-      ADELAIDE EARTH IMAGING
-    </text>
+  <!-- ======================================================== -->
+  <!-- TITLE -->
+  <!-- ======================================================== -->
+
+  <text x="110"
+        y="165"
+        fill="#102d50"
+        font-family="Inter, Helvetica Neue, Arial, sans-serif"
+        font-size="72"
+        font-weight="300"
+        letter-spacing="15">
+    ADELAIDE EARTH IMAGING
+  </text>
+
+
+  <!-- ======================================================== -->
+  <!-- RESEARCH AREAS -->
+  <!-- ======================================================== -->
+
+  <line x1="1730"
+        y1="48"
+        x2="1730"
+        y2="220"
+        stroke="#294c6c"
+        stroke-width="2"/>
+
+  <g fill="#315575"
+     font-family="Inter, Helvetica Neue, Arial, sans-serif"
+     font-size="21"
+     font-weight="400"
+     letter-spacing="4.5">
+
+    <text x="1790" y="70">MAGNETOTELLURICS</text>
+    <text x="1790" y="110">PASSIVE SEISMIC</text>
+    <text x="1790" y="150">POTENTIAL FIELDS</text>
+    <text x="1790" y="190">GEOPHYSICAL INVERSION</text>
+    <text x="1790" y="230">COMPUTATIONAL GEOPHYSICS</text>
+
   </g>
 
-  <!-- Divider -->
-  <line
-    x1="1740"
-    y1="145"
-    x2="1740"
-    y2="330"
-    stroke="#294a67"
-    stroke-width="2"
-    opacity="0.75"
-  />
 
-  <!-- Research themes -->
-  <g
-    fill="#294a67"
-    font-family="Inter, Helvetica Neue, Arial, sans-serif"
-    font-size="23"
-    font-weight="400"
-    letter-spacing="5"
-  >
-    <text x="1805" y="165">MAGNETOTELLURICS</text>
-    <text x="1805" y="210">PASSIVE SEISMIC</text>
-    <text x="1805" y="255">POTENTIAL FIELDS</text>
-    <text x="1805" y="300">GEOPHYSICAL INVERSION</text>
-    <text x="1805" y="345">COMPUTATIONAL GEOPHYSICS</text>
-  </g>
+  <!-- ======================================================== -->
+  <!-- SUBSURFACE -->
+  <!-- ======================================================== -->
 
-  <!-- ========================================================= -->
-  <!-- Subsurface base -->
-  <!-- ========================================================= -->
+  <g clip-path="url(#belowGround)">
 
-  <g clip-path="url(#belowSurface)">
+    <rect x="0"
+          y="240"
+          width="2400"
+          height="360"
+          fill="url(#earthBase)"/>
 
-    <rect
-      x="0"
-      y="350"
-      width="2400"
-      height="250"
-      fill="url(#subsurface)"
-      opacity="0.90"
-    />
 
-    <!-- Broad warm conductive feature -->
-    <ellipse
-      cx="820"
-      cy="435"
-      rx="310"
-      ry="120"
-      fill="url(#warmAnomaly)"
-      filter="url(#softBlur)"
-    />
+    <!-- ------------------------------------------------------ -->
+    <!-- Large central conductive structure -->
+    <!-- ------------------------------------------------------ -->
 
-    <!-- Smaller upper-crustal conductor -->
-    <ellipse
-      cx="690"
-      cy="410"
-      rx="150"
-      ry="65"
-      fill="#e84057"
-      opacity="0.48"
-      filter="url(#softBlur)"
-    />
+    <ellipse cx="760"
+             cy="360"
+             rx="390"
+             ry="180"
+             fill="url(#hot1)"
+             filter="url(#blur35)"/>
 
-    <!-- Cooler/resistive central domain -->
-    <ellipse
-      cx="1380"
-      cy="430"
-      rx="420"
-      ry="125"
-      fill="#287dc1"
-      opacity="0.32"
-      filter="url(#verySoftBlur)"
-    />
+    <ellipse cx="820"
+             cy="415"
+             rx="260"
+             ry="130"
+             fill="#ff812b"
+             opacity="0.42"
+             filter="url(#blur35)"/>
 
-    <!-- Deep purple structure -->
-    <ellipse
-      cx="1870"
-      cy="510"
-      rx="320"
-      ry="125"
-      fill="url(#deepAnomaly)"
-      filter="url(#softBlur)"
-    />
 
-    <!-- Secondary deep structure -->
-    <ellipse
-      cx="1590"
-      cy="485"
-      rx="250"
-      ry="100"
-      fill="#4554a7"
-      opacity="0.23"
-      filter="url(#softBlur)"
-    />
+    <!-- ------------------------------------------------------ -->
+    <!-- Transitional central structure -->
+    <!-- ------------------------------------------------------ -->
 
-    <!-- Depth fade -->
-    <rect
-      x="0"
-      y="390"
-      width="2400"
-      height="210"
-      fill="url(#depthFade)"
-    />
+    <ellipse cx="1240"
+             cy="425"
+             rx="260"
+             ry="115"
+             fill="url(#warm)"
+             opacity="0.75"
+             filter="url(#blur35)"/>
 
-    <!-- ======================================================= -->
-    <!-- Geophysical contour / structure lines -->
-    <!-- ======================================================= -->
 
-    <g
-      fill="none"
-      stroke="#ffffff"
-      stroke-width="1.4"
-      opacity="0.28"
-    >
+    <!-- Narrow resistive/cool domain -->
+    <ellipse cx="1535"
+             cy="365"
+             rx="230"
+             ry="165"
+             fill="#0757c8"
+             opacity="0.50"
+             filter="url(#blur35)"/>
+
+
+    <!-- ------------------------------------------------------ -->
+    <!-- Right conductive structures -->
+    <!-- ------------------------------------------------------ -->
+
+    <ellipse cx="1890"
+             cy="390"
+             rx="250"
+             ry="90"
+             fill="url(#hot2)"
+             opacity="0.95"
+             filter="url(#blur35)"/>
+
+    <ellipse cx="2210"
+             cy="415"
+             rx="240"
+             ry="105"
+             fill="url(#hot2)"
+             opacity="0.90"
+             filter="url(#blur35)"/>
+
+
+    <!-- ------------------------------------------------------ -->
+    <!-- Deep structures -->
+    <!-- ------------------------------------------------------ -->
+
+    <ellipse cx="2050"
+             cy="575"
+             rx="440"
+             ry="180"
+             fill="url(#deepPurple)"
+             filter="url(#blur55)"/>
+
+    <ellipse cx="250"
+             cy="590"
+             rx="310"
+             ry="140"
+             fill="#6245c4"
+             opacity="0.28"
+             filter="url(#blur55)"/>
+
+
+    <!-- Depth shading -->
+    <rect x="0"
+          y="300"
+          width="2400"
+          height="300"
+          fill="url(#depthShade)"/>
+
+
+    <!-- ====================================================== -->
+    <!-- STRUCTURAL / MODEL CONTOURS -->
+    <!-- ====================================================== -->
+
+    <g fill="none"
+       stroke="#ffffff"
+       stroke-width="1.35"
+       opacity="0.50">
+
       <path d="
-        M 0 440
-        C 220 425, 360 438, 520 447
-        C 700 458, 780 486, 930 476
-        C 1100 464, 1200 430, 1390 442
-        C 1580 454, 1710 492, 1900 480
-        C 2100 468, 2220 440, 2400 449
+        M0 350
+        C170 320 330 327 470 347
+        C610 368 670 400 790 408
+        C920 418 1020 365 1135 353
+        C1255 341 1335 367 1430 395
+        C1530 425 1600 430 1690 397
+        C1800 355 1890 343 2010 348
+        C2150 353 2260 335 2400 340
       "/>
 
       <path d="
-        M 0 466
-        C 180 451, 350 462, 500 477
-        C 680 494, 790 515, 940 500
-        C 1100 484, 1210 456, 1400 467
-        C 1570 477, 1720 520, 1900 507
-        C 2070 496, 2220 466, 2400 475
+        M0 385
+        C160 350 315 355 455 378
+        C600 401 675 445 800 452
+        C930 459 1015 407 1130 390
+        C1245 373 1345 401 1440 433
+        C1530 463 1610 467 1705 429
+        C1810 388 1900 377 2010 382
+        C2140 389 2265 367 2400 373
       "/>
 
       <path d="
-        M 0 493
-        C 200 476, 360 493, 520 508
-        C 700 525, 810 540, 970 526
-        C 1150 509, 1240 486, 1420 495
-        C 1600 506, 1740 543, 1920 532
-        C 2110 519, 2250 496, 2400 505
+        M0 425
+        C155 388 310 392 450 416
+        C595 441 680 485 815 492
+        C940 499 1035 451 1145 431
+        C1260 411 1355 440 1455 475
+        C1550 507 1630 506 1720 469
+        C1825 427 1910 420 2020 425
+        C2140 432 2270 409 2400 414
       "/>
 
       <path d="
-        M 80 520
-        C 250 507, 400 520, 560 535
-        C 720 550, 830 558, 1010 545
-        C 1190 532, 1300 515, 1470 522
-        C 1660 530, 1790 558, 1980 551
-        C 2140 544, 2260 527, 2380 530
+        M0 470
+        C160 431 310 438 455 463
+        C600 489 700 527 825 535
+        C955 543 1050 497 1160 478
+        C1275 458 1370 485 1470 520
+        C1570 554 1650 550 1740 516
+        C1845 474 1935 467 2040 472
+        C2160 479 2275 456 2400 460
       "/>
+
+      <path d="
+        M0 520
+        C165 480 320 486 465 510
+        C615 536 710 568 845 575
+        C970 582 1070 545 1180 525
+        C1300 503 1390 529 1490 560
+        C1580 588 1670 590 1760 555
+        C1860 516 1950 509 2055 515
+        C2170 522 2280 501 2400 505
+      "/>
+
     </g>
 
-    <!-- Dashed interpreted structures -->
-    <g
-      fill="none"
-      stroke="#ffffff"
-      stroke-width="1.5"
-      stroke-dasharray="8 10"
-      opacity="0.34"
-    >
+
+    <!-- ====================================================== -->
+    <!-- DASHED INTERPRETIVE LINES -->
+    <!-- ====================================================== -->
+
+    <g fill="none"
+       stroke="#ffffff"
+       stroke-width="1.2"
+       stroke-dasharray="8 9"
+       opacity="0.38">
+
       <path d="
-        M 100 430
-        C 340 430, 450 446, 590 460
-        C 760 476, 890 475, 1040 454
+        M40 335
+        C210 320 370 330 510 350
+        C650 370 720 395 840 400
+        C980 406 1060 372 1180 360
       "/>
 
       <path d="
-        M 1100 446
-        C 1270 427, 1410 432, 1540 459
-        C 1700 492, 1850 491, 2050 459
+        M1040 365
+        C1200 340 1320 360 1430 395
+        C1530 428 1615 435 1710 405
+        C1830 366 1950 360 2080 370
       "/>
 
       <path d="
-        M 1770 520
-        C 1880 500, 2010 503, 2170 527
+        M70 485
+        C220 450 365 455 500 480
+        C630 505 710 540 825 550
       "/>
+
+      <path d="
+        M1420 530
+        C1540 570 1640 565 1740 530
+        C1850 490 1970 487 2090 500
+        C2200 512 2290 497 2370 495
+      "/>
+
     </g>
 
   </g>
 
-  <!-- ========================================================= -->
-  <!-- Surface / topography -->
-  <!-- ========================================================= -->
 
-  <!-- very light terrain fill -->
-  <path
-    d="
-      M 0 405
-      C 150 402, 250 405, 360 397
-      C 430 392, 470 371, 530 374
-      C 610 377, 655 402, 760 402
-      C 870 402, 980 400, 1050 383
-      C 1120 365, 1170 353, 1240 370
-      C 1310 388, 1390 402, 1500 402
-      C 1600 402, 1690 398, 1770 390
-      C 1840 383, 1890 388, 1970 397
-      C 2070 407, 2220 404, 2400 405
-      L 2400 415
-      L 0 415 Z
+  <!-- ======================================================== -->
+  <!-- NATURALISTIC VECTOR TOPOGRAPHY -->
+  <!-- ======================================================== -->
+
+  <!-- Base terrain -->
+  <path d="
+    M0 305
+
+    C90 305 155 301 220 300
+    C290 299 350 289 405 271
+    C440 259 467 244 493 249
+    C525 255 549 275 585 286
+    C632 300 690 304 765 304
+
+    C835 304 895 299 947 280
+    C988 265 1024 247 1061 252
+    C1098 257 1128 277 1167 288
+    C1213 301 1273 305 1343 305
+
+    C1430 305 1510 304 1582 296
+    C1632 291 1680 277 1721 280
+    C1757 283 1783 296 1825 301
+
+    C1900 306 1990 305 2070 305
+    C2170 305 2280 306 2400 305
+
+    L2400 318
+    L0 318 Z
+  "
+  fill="#87966d"/>
+
+
+  <!-- Terrain highlights -->
+  <g clip-path="url(#terrainClip)">
+
+    <path d="
+      M0 301
+      C150 297 280 295 390 270
+      C440 258 465 251 495 254
+      C540 260 570 282 640 295
+      L640 307
+      L0 307 Z
     "
-    fill="#dce2e6"
-    opacity="0.55"
-  />
+    fill="#73927a"
+    opacity="0.85"/>
 
-  <!-- Main surface line -->
-  <path
-    d="
-      M 0 405
-      C 150 402, 250 405, 360 397
-      C 430 392, 470 371, 530 374
-      C 610 377, 655 402, 760 402
-      C 870 402, 980 400, 1050 383
-      C 1120 365, 1170 353, 1240 370
-      C 1310 388, 1390 402, 1500 402
-      C 1600 402, 1690 398, 1770 390
-      C 1840 383, 1890 388, 1970 397
-      C 2070 407, 2220 404, 2400 405
+    <path d="
+      M350 292
+      C400 276 435 254 468 249
+      C487 246 510 255 530 267
+      C492 260 465 265 432 279
+      C407 289 380 296 350 298 Z
     "
-    fill="none"
-    stroke="#53636f"
-    stroke-width="2"
-    opacity="0.78"
-  />
-
-  <!-- Secondary terrain sketch lines -->
-  <g
-    fill="none"
-    stroke="#87939c"
-    stroke-width="1"
-    opacity="0.25"
-  >
-    <path d="
-      M 290 397
-      C 400 393, 445 379, 505 381
-      C 570 383, 620 398, 700 401
-    "/>
+    fill="#b4a774"
+    opacity="0.85"/>
 
     <path d="
-      M 970 398
-      C 1080 390, 1110 370, 1170 366
-      C 1240 363, 1300 390, 1390 399
-    "/>
+      M900 299
+      C960 284 1004 254 1052 251
+      C1092 249 1118 272 1155 286
+      C1110 276 1075 272 1030 280
+      C980 289 948 300 900 304 Z
+    "
+    fill="#b5a273"
+    opacity="0.90"/>
 
     <path d="
-      M 1680 398
-      C 1780 392, 1810 387, 1870 390
-      C 1930 392, 1970 399, 2050 402
-    "/>
+      M1530 302
+      C1600 298 1660 281 1710 280
+      C1745 280 1770 294 1810 301
+      C1745 294 1680 296 1610 304 Z
+    "
+    fill="#718f70"
+    opacity="0.85"/>
+
   </g>
+
+
+  <!-- Terrain ridge -->
+  <path d="
+    M0 305
+
+    C90 305 155 301 220 300
+    C290 299 350 289 405 271
+    C440 259 467 244 493 249
+    C525 255 549 275 585 286
+    C632 300 690 304 765 304
+
+    C835 304 895 299 947 280
+    C988 265 1024 247 1061 252
+    C1098 257 1128 277 1167 288
+    C1213 301 1273 305 1343 305
+
+    C1430 305 1510 304 1582 296
+    C1632 291 1680 277 1721 280
+    C1757 283 1783 296 1825 301
+
+    C1900 306 1990 305 2070 305
+    C2170 305 2280 306 2400 305
+  "
+  fill="none"
+  stroke="#263c4a"
+  stroke-width="2"/>
+
+
+  <!-- Fine terrain detail -->
+  <g fill="none"
+     stroke="#415966"
+     stroke-width="0.9"
+     opacity="0.42">
+
+    <path d="
+      M285 296
+      C350 288 400 269 447 258
+      C480 251 510 262 550 280
+    "/>
+
+    <path d="
+      M340 290
+      C395 279 435 263 468 256
+      C500 254 525 268 560 282
+    "/>
+
+    <path d="
+      M925 292
+      C975 279 1015 262 1050 258
+      C1085 258 1110 272 1140 283
+    "/>
+
+    <path d="
+      M1570 297
+      C1630 290 1670 282 1705 285
+      C1740 287 1760 296 1795 300
+    "/>
+
+  </g>
+
+
+  <!-- Ground interface -->
+  <line x1="0"
+        y1="307"
+        x2="2400"
+        y2="307"
+        stroke="#123653"
+        stroke-width="1.4"
+        opacity="0.72"/>
 
 </svg>
